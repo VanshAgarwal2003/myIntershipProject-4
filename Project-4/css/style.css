@@ -1,0 +1,124 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+input{
+  display: none;
+}
+.container{
+  width:100%;
+  text-align: center;
+}
+h1{
+  font-weight: bolder;
+  font-size: 3em;
+  position: relative;
+  margin: 40px 0;
+}
+h1::before{
+  content: "";
+  position:absolute;
+  left:50%;
+  top:1.25em;
+  width:100px;
+  height:5px;
+  background-color: rgb(145, 255, 0);
+  transform: translateX(-50%);
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate{
+  0%{
+    width:100px;
+  }
+  50%{
+    width:200px;
+  }
+  100%{
+    width:100px
+  }
+}
+.top-content{
+  background-color:lightgreen;
+  width: 90%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgb(79, 189, 79);
+  margin: 0px auto 20px auto;
+  
+}
+.top-content h3{
+  height: 100%;
+  background-color: rgba(172, 255, 47, 0.512);
+  line-height: 60px;
+  padding: 0 50px;
+  border-radius: 5px;
+  color:black;
+}
+label{
+  display: inline-block;
+  height: 100%;
+  padding: 0 5px;
+  margin: 0 80px;
+  line-height: 60px;
+
+}
+label:hover{
+  cursor: pointer;
+  color:white;
+}
+.photoGallery{
+  width:90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 20px;
+}
+.photoGallery img{
+  width:100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 3px 3p 5px lightgray;
+}
+.pic:hover{
+  opacity: 0.8;
+}
+
+#check1:checked ~ .container .photoGallery .pic {
+  transform: scale(1);
+  position: relative; 
+}
+#check2:checked ~ .container .photoGallery .family{
+  transform: scale(1);
+  position: relative; 
+}
+#check2:checked ~ .container .photoGallery .party 
+,#check2:checked ~ .container .photoGallery .landscape{
+  transform: scale(0);
+  position: absolute; 
+}
+
+#check3:checked ~ .container .photoGallery .landscape{
+  transform: scale(1);
+  position: relative;
+}
+#check3:checked ~ .container .photoGallery .family 
+,#check3:checked ~ .container .photoGallery .party{
+  transform: scale(0);
+  position: absolute; 
+}
+
+#check4:checked ~ .container .photoGallery .party{
+  transform: scale(1);
+  position: relative;
+}
+
+#check4:checked ~ .container .photoGallery .family 
+,#check4:checked ~ .container .photoGallery .landscape{
+  transform: scale(0);
+  position: absolute; 
+}
